@@ -1,6 +1,6 @@
-// Use const's in taskFirst
+// Use const in taskFirst
 export function taskFirst() {
-    const task = "I prefer const's when I can.";
+    const task = 'I prefer const when I can.';
     return task;
 }
 
