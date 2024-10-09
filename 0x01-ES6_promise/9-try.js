@@ -1,15 +1,21 @@
 // 9-try.js
 export default function guardrail(mathFunction) {
-    const queue = []; // Create the queue array
+    // Create the queue array
+    const queue = [];
   
     try {
-      const result = mathFunction(); // Attempt to execute the passed function
-      queue.push(result); // Append the result to the queue if successful
+      // Execute the mathFunction and append the result to the queue
+      const result = mathFunction();
+      queue.push(result);
     } catch (error) {
-      queue.push(error.message); // Append the error message to the queue if an error occurs
+      // If an error occurs, append the error message to the queue
+      queue.push(`Error: ${error.message}`);
+    } finally {
+      // Always add this message to the queue
+      queue.push('Guardrail was processed');
     }
   
-    queue.push('Guardrail was processed'); // Append the guardrail message to the queue
-    return queue; // Return the queue
+    // Return the queue
+    return queue;
   }
   

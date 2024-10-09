@@ -1,16 +1,19 @@
 // 3-all.js
-import { createUser, uploadPhoto } from './utils.js';
+import createUser from './4-user-promise';
+import uploadPhoto from './5-photo-reject';
 
-export default function handleProfileSignup() {
-  const uploadPromise = uploadPhoto();
-  const createUserPromise = createUser();
+export default async function handleProfileSignup() {
+  try {
+    // Call both functions and wait for their promises to resolve
+    const [photoResponse, userResponse] = await Promise.all([
+      uploadPhoto('photo-profile-1'),
+      createUser('Guillaume', 'Salva'),
+    ]);
 
-  Promise.all([uploadPromise, createUserPromise])
-    .then((responses) => {
-      const [uploadResponse, userResponse] = responses;
-      console.log(`${uploadResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
-    })
-    .catch(() => {
-      console.log('Signup system offline');
-    });
+    // Log the required values
+    console.log(photoResponse.body, userResponse.firstName, userResponse.lastName);
+  } catch (error) {
+    // Log the error message if any promise fails
+    console.log('Signup system offline');
+  }
 }
