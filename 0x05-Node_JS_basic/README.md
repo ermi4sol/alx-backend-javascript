@@ -27,7 +27,7 @@ By completing this project, you will be able to:
 ## Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/alx-backend-javascript.git
+git clone https://github.com/ermi4sol/alx-backend-javascript.git
 cd alx-backend-javascript/0x05-Node_JS_basic
 ```
 
