@@ -12,7 +12,7 @@ const readDatabase = (filePath) => {
       const students = lines.filter(line => line.trim() !== '');
       
       const fields = {};
-      students.forEach(student => {
+      students.forEach((student) => {
         const [firstname, lastname, age, field] = student.split(',');
         if (!fields[field]) {
           fields[field] = [];
